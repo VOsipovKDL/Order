@@ -5,15 +5,17 @@ namespace Order
 {
     internal class Phone : DigitalTechnplogy
     {
-        public int Memory { get; private set; }
+        public int Memory { get; set; }
 
-        private string? memoryCardType;
+        public string? memoryCardType { get; set; }
 
         public string? MemoryCardType
         {
             get { return (memoryCardType==null) ? "отсутствует" : memoryCardType; }
             set { memoryCardType = value; }
         }
+
+        public Phone() { }
 
         public Phone(int memory, string? memoryCardType, string processor, int coreNumber, string name, int originalPrice, int discountAmount)
             : base(processor, coreNumber, name, originalPrice, discountAmount)

@@ -2,18 +2,18 @@
 {
     internal abstract class Product
     {
-        protected string Name;
+        public string? Name { get; set; }
 
-        public int OriginalPrice { get; protected set; }
+        public int OriginalPrice { get; set; }
 
-        public int TotalPrice { get; protected set; }
+        public int TotalPrice { get; set; }
 
-        private int discountAmount;
+        public int discountAmount { get; set; }
 
         public int DiscountAmount
         {
             get { return discountAmount; }
-            protected set
+            set
             {
                 if (value < 0)
                 {
@@ -25,6 +25,8 @@
                 }
             }
         }
+
+        public Product() { }
 
         public Product(string name, int originalPrice, int discountAmount)
         {

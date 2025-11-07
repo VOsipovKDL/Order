@@ -2,9 +2,11 @@
 {
     internal abstract class DigitalTechnplogy : Product
     {
-        protected string Processor;
+        public string? Processor { get; set; }
 
-        protected int CoreNumber;
+        public int CoreNumber { get; set; }
+
+        public DigitalTechnplogy() { }
 
         public DigitalTechnplogy(string processor, int coreNumber, string name, int originalPrice, int discountAmount)
             : base(name, originalPrice, discountAmount)

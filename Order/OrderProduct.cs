@@ -6,9 +6,14 @@
     {
         public TProduct[] Products { get; private set; }
 
-        public string? Comment { get; private set; }
+        public string? Comment { get; set; }
 
-        private TDelivery Delivery;
+        public TDelivery Delivery { get; set; }
+
+        public OrderProduct() : base(DateTime.Now.GetStringOrderNumber())
+        {
+            Products = new TProduct[5];
+        }
 
         public OrderProduct(TDelivery delivery, string comment) : base(DateTime.Now.GetStringOrderNumber())
         {
@@ -17,10 +22,8 @@
             Products = new TProduct[5];
         }
 
-        public OrderProduct(TDelivery delivery, TProduct[] products, string comment) : base(DateTime.Now.GetStringOrderNumber())
+        public OrderProduct(TProduct[] products) : base(DateTime.Now.GetStringOrderNumber())
         {
-            Delivery = delivery;
-            Comment = comment;
             Products = products;
         }
         public static OrderProduct<TDelivery, TProduct> operator ++(OrderProduct<TDelivery, TProduct> oldOrder)
